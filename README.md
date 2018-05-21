@@ -1,5 +1,7 @@
 # tmux-remote
 
+[![Build Status](https://travis-ci.org/danyim/tmux-remote.svg?branch=master)](https://travis-ci.org/danyim/tmux-remote)
+
 `tmux-remote` is a simple plugin that toggles your host machine's tmux keybindings when working remotely.
 
 Tested and working macOS and Linux.
