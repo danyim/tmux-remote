@@ -11,13 +11,19 @@
   # start tmux in background (plugin under test is sourced)
   tmux new -d
 
-  # get first session name
-  session_name="$(tmux list-sessions -F "#{session_name}")"
+  # get default options
+  toggle_key="$(tmux show-option -gv @remote-toggle-key)"
+  on_key="$(tmux show-option -gv @remote-on-key)"
+  off_key="$(tmux show-option -gv @remote-off-key)"
 
-  # fail the test if first session name is not "0"
-  if [ "$session_name" == "0" ]; then
-      # fail_helper is also provided by 'tmux-test'
-      fail_helper "First session name is not '0' by default"
+  if [ "$toggle_key" == "" ]; then
+      fail_helper "Default toggle key not set"
+  fi
+  if [ "$on_key" == "" ]; then
+      fail_helper "Default on key not set"
+  fi
+  if [ "$off_key" == "" ]; then
+      fail_helper "Default off key not set"
   fi
 
   # sets the right script exit code ('tmux-test' helper)

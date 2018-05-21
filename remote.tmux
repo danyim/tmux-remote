@@ -6,21 +6,19 @@ source "$CURRENT_DIR/scripts/variables.sh"
 source "$CURRENT_DIR/scripts/helpers.sh"
 
 main() {
-	if option_value_not_changed $toggle_key_option $default_toggle_key; then
+	if option_not_exists $toggle_key_option $default_toggle_key; then
 		tmux set-option -g $toggle_key_option $default_toggle_key
 	fi
-	if option_value_not_changed $on_key_option $default_on_key; then
+	if option_not_exists $on_key_option $default_on_key; then
 		tmux set-option -g $on_key_option $default_on_key
 	fi
-	if option_value_not_changed $off_key_option $default_off_key; then
+	if option_not_exists $off_key_option $default_off_key; then
 		tmux set-option -g $off_key_option $default_off_key
 	fi
 
 	local toggle_key=$(tmux show-option -gv "$toggle_key_option")
 	local on_key=$(tmux show-option -gv "$on_key_option")
 	local off_key=$(tmux show-option -gv "$off_key_option")
-
-	wg_is_remote="#[fg=colour244]#([ $(tmux show-option -qv key-table) = 'off' ] && echo '[REMOTE]')#[default]"
 
 	tmux unbind -T root $toggle_key
 	tmux unbind -T off $toggle_key

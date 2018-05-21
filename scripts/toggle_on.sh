@@ -4,5 +4,4 @@ tmux set prefix None
 tmux set key-table off
 tmux set -g status-left "[REMOTE]"
 tmux if -F '#{pane_in_mode}' 'send-keys -X cancel'
-# tmux display "Remote mode: ON"
 tmux refresh-client -S
