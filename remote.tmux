@@ -11,7 +11,9 @@ main() {
 	fi
 
 	local key=$(tmux show-option -gv "$toggle_key_option")
-	echo "toggle option is $key"
+
+	wg_is_remote="#[fg=$color_light,bg=$color_window_off_indicator]#([ $(tmux show-option -qv key-table) = 'off' ] && echo '[OFF]')#[default]"
+	tmux set -g status-left "$wg_is_remote"
 
 	tmux unbind -T root $key
 	tmux unbind -T off $key
