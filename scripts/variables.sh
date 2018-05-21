@@ -1,2 +1,3 @@
 # options
-toggle_key="@remote-toggle-keybinding"
+default_toggle_key="F12"
+toggle_key_option="@remote-toggle-key"

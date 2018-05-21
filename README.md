@@ -31,12 +31,12 @@ Then reload tmux environment with `$ tmux source-file ~/.tmux.conf`.
 
 | Key           | Action        |
 | ------------- | ------------- |
-| F12           | Toggles the remote mode  |
+| F1           | Toggles the remote mode  |
 
 ### Options
 
-    # sadf
-    setw -g aggressive-resize on
+    # Change the default keybinding (F12)
+    setw -g @remote-toggle-key F2
 
 ### Resources
 
