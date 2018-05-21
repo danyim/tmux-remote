@@ -1,19 +1,22 @@
 # tmux-remote
 
-tmux-remote is a simple plugin that toggles your host machine's tmux keybindings when working remotely.
+`tmux-remote` is a simple plugin that toggles your host machine's tmux keybindings when working remotely.
 
 Tested and working macOS and Linux.
 
+### Why
+When in nested sessions with tmux, `tmux-remote` enables you to enter a mode where your host machine's tmux bindings are disabled, which easily allows you to switch contexts between host and remote tmux sessions.
+
 ### Installation
 
-#### Using TPM
+#### Install with TPM
 Install using [tpm](https://github.com/tmux-plugins/tpm) (tmux Plugin Manager)
 
 By adding the following in your `.tmux.conf`:
 
     set -g @plugin 'danyim/tmux-remote'
 
-Hit `prefix + I` to fetch the plugin and source it. That's it!
+Then hit `prefix + I` to fetch the plugin and source it.
 
 #### Manual Install
 
@@ -25,18 +28,18 @@ Add this line to the bottom of `.tmux.conf`:
 
     run-shell ~/path/to/tmux-remote/remote.tmux
 
-Then reload tmux environment with `$ tmux source-file ~/.tmux.conf`.
+Then reload your tmux environment with `$ tmux source-file ~/.tmux.conf`.
 
 ### Usage
 
 | Key           | Action        |
 | ------------- | ------------- |
-| F1           | Toggles the remote mode  |
+| F12 (without prefix)           | Toggles the remote mode  |
 
 ### Options
 
     # Change the default keybinding (F12)
-    setw -g @remote-toggle-key F2
+    setw -g @remote-toggle-key F12
 
 ### Resources
 
