@@ -1,6 +1,5 @@
-option_not_exists() {
+option_not_set() {
   local option="$1"
-  local default_value="$2"
-  local option_value=$(tmux show-option -gv "$option")
-  [[ "$option_value" == unknown* ]]
+  local option_value=$(tmux show-option -gv $option)
+  [[ -z "$option_value" ]]
 }
