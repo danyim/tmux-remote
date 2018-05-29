@@ -7,15 +7,12 @@ source "$CURRENT_DIR/scripts/helpers.sh"
 
 main() {
 	if option_not_set $toggle_key_option; then
-		# echo "setting $toggle_key_option"
 		tmux set-option -g $toggle_key_option $default_toggle_key
 	fi
 	if option_not_set $on_key_option; then
-		# echo "setting $toggle_key_option"
 		tmux set-option -g $on_key_option $default_on_key
 	fi
 	if option_not_set $off_key_option; then
-		# echo "setting $toggle_key_option"
 		tmux set-option -g $off_key_option $default_off_key
 	fi
 
