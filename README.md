@@ -57,7 +57,7 @@ setw -g @remote-toggle-key F12
 ```
 
 ## Testing
-Basic tests have been created with (tmux-test)[https://github.com/tmux-plugins/tmux-test]. To run tests:
+Basic tests have been created with [tmux-test](https://github.com/tmux-plugins/tmux-test). To run tests:
 
 ```
 > ./run_tests
