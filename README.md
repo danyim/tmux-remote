@@ -1,6 +1,6 @@
 # tmux-remote
 
-[![Build Status](https://travis-ci.org/danyim/tmux-remote.svg?branch=master)](https://travis-ci.org/danyim/tmux-remote)
+[![Tests](https://github.com/danyim/tmux-remote/actions/workflows/test.yml/badge.svg)](https://github.com/danyim/tmux-remote/actions/workflows/test.yml)
 
 `tmux-remote` is a simple plugin that allows for toggling your tmux session's keybindings. This is especially useful when in nested remote tmux sessions that use the same prefix key as the host.
 
