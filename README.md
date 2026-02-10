@@ -6,7 +6,7 @@
 
 ![](https://i.imgur.com/3gfFGpk.png)
 
-Tested and working macOS and Linux.
+Tested and working on macOS and Linux. Requires tmux 2.1+.
 
 ## Installation
 
@@ -49,19 +49,15 @@ After installing the plugin, simply press <kbd>F12</kbd> to toggle remote-mode o
 
 ```tmux
 # Change the default on keybinding (F10)
-setw -g @remote-on-key F10
+set -g @remote-on-key F10
 # Change the default off keybinding (F11)
-setw -g @remote-off-key F11
+set -g @remote-off-key F11
 # Change the default toggle keybinding (F12)
-setw -g @remote-toggle-key F12
+set -g @remote-toggle-key F12
 ```
 
 ## Testing
-Basic tests have been created with [tmux-test](https://github.com/tmux-plugins/tmux-test). To run tests:
-
-```
-> ./run_tests
-```
+Tests run automatically via [GitHub Actions](https://github.com/danyim/tmux-remote/actions/workflows/test.yml) on push and PR.
 
 ## Resources
 

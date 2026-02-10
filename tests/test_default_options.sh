@@ -1,9 +1,9 @@
-  #/usr/bin/env bash
+  #!/usr/bin/env bash
 
   CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
   # bash helpers provided by 'tmux-test'
-  source $CURRENT_DIR/helpers/helpers.sh
+  source "$CURRENT_DIR/helpers/helpers.sh"
 
   # installs plugin from current repo in Vagrant (or on Travis)
   install_tmux_plugin_under_test_helper
