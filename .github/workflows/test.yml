@@ -24,4 +24,13 @@ jobs:
         run: lib/tmux-test/setup
 
       - name: Run tests
-        run: ./tests/run_tests_in_isolation
+        run: |
+          exit_val=0
+          for test_file in tests/test_*.sh; do
+            echo "--- Running: $test_file ---"
+            bash "$test_file"
+            if [ $? -ne 0 ]; then
+              exit_val=1
+            fi
+          done
+          exit $exit_val
