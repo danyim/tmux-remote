@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 
-# Save the current status-left so toggle_off can restore it
-tmux set -g @remote-saved-status-left "$(tmux show-option -gv status-left)"
+# Save the current status-left so toggle_off can restore it (only once)
+saved="$(tmux show-option -gv @remote-saved-status-left)"
+if [[ -z "$saved" ]]; then
+    tmux set -g @remote-saved-status-left "$(tmux show-option -gv status-left)"
+fi
 
 # Read indicator options
 text="$(tmux show-option -gv @remote-indicator-text)"
