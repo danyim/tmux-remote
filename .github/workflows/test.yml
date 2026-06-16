@@ -1,10 +1,11 @@
-name: Tests
+name: Unit Tests
 
 on:
   push:
     branches: [master]
   pull_request:
     branches: [master]
+  workflow_dispatch:
 
 jobs:
   test:
@@ -24,12 +25,18 @@ jobs:
 
       - name: Run tests
         run: |
-          exit_val=0
+          passed=0
+          failed=0
           for test_file in tests/test_*.sh; do
             echo "--- Running: $test_file ---"
-            bash "$test_file"
-            if [ $? -ne 0 ]; then
-              exit_val=1
+            if bash "$test_file"; then
+              echo "PASS: $test_file"
+              ((passed++))
+            else
+              echo "FAIL: $test_file"
+              ((failed++))
             fi
           done
-          exit $exit_val
+          echo ""
+          echo "Results: $passed passed, $failed failed"
+          [ "$failed" -eq 0 ]
