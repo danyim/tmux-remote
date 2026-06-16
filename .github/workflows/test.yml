@@ -31,10 +31,10 @@ jobs:
             echo "--- Running: $test_file ---"
             if bash "$test_file"; then
               echo "PASS: $test_file"
-              ((passed++))
+              passed=$((passed + 1))
             else
               echo "FAIL: $test_file"
-              ((failed++))
+              failed=$((failed + 1))
             fi
           done
           echo ""
