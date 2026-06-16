@@ -25,16 +25,16 @@ main() {
 		tmux set-option -g "$indicator_bg_option" "$default_indicator_bg"
 	fi
 
-	local toggle_key=$(tmux show-option -gv "$toggle_key_option")
-	local on_key=$(tmux show-option -gv "$on_key_option")
-	local off_key=$(tmux show-option -gv "$off_key_option")
+	local toggle_key; toggle_key=$(tmux show-option -gv "$toggle_key_option")
+	local on_key; on_key=$(tmux show-option -gv "$on_key_option")
+	local off_key; off_key=$(tmux show-option -gv "$off_key_option")
 
-	tmux unbind -T root "$toggle_key"
-	tmux unbind -T off "$toggle_key"
-	tmux unbind -T root "$on_key"
-	tmux unbind -T off "$on_key"
-	tmux unbind -T root "$off_key"
-	tmux unbind -T off "$off_key"
+	tmux unbind -T root "$toggle_key" 2>/dev/null || true
+	tmux unbind -T off "$toggle_key" 2>/dev/null || true
+	tmux unbind -T root "$on_key" 2>/dev/null || true
+	tmux unbind -T off "$on_key" 2>/dev/null || true
+	tmux unbind -T root "$off_key" 2>/dev/null || true
+	tmux unbind -T off "$off_key" 2>/dev/null || true
 
 	# Press the toggle key to toggle "remote mode"; disables host bindings for
 	# using tmux in nested sessions
