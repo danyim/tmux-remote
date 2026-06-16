@@ -5,6 +5,7 @@ off_key_option="@remote-off-key"
 indicator_text_option="@remote-indicator-text"
 indicator_fg_option="@remote-indicator-fg"
 indicator_bg_option="@remote-indicator-bg"
+saved_status_left_option="@remote-saved-status-left"
 
 # default option values
 default_toggle_key="F12"
